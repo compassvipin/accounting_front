@@ -1,0 +1,55 @@
+<div class="top-content" >            
+            <div>
+                <div ng-include="'app/templates/login/header.html'"></div>                
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                            <div class="form-top">
+                                <div class="form-top-left">
+                                    <h3>Register Here</h3>
+                                    <p>Enter your username and password to log on:</p>
+                                </div>
+                                <div class="form-top-right">
+                                    <i class="fa fa-lock"></i>
+                                </div>
+                            </div>
+                            <div class="form-bottom">
+                                <form role="form" action="" method="post" class="login-form">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-username">FirstName</label>
+                                            <input type="text" ng-model="firstname" placeholder="First Name..." class="form-username form-control {{inavlidfirstname}}" id="form-username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-username">LastName</label><input type="text" ng-model="lastname"  placeholder="Last Name..." class="form-username form-control {{inavlidlastname}}" id="form-username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-username">Email</label>
+                                            <input type="email" name="form-username" placeholder="Email..." ng-model="email"  class="form-username form-control {{inavlidemail}}" id="form-username">
+                                    </div>
+                                     <div class="form-group">
+                                        <label class="sr-only" for="form-username">Password</label>
+                                            <input type="password" name="form-username" placeholder="Password..." ng-model="password"  class="form-username form-control {{inavlidpassword}}" id="form-username">
+                                    </div>
+                                    
+                                    <button  ng-click="registerUser()" class="btn">Register !</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 social-login">
+                            <div class="social-login-buttons">
+                                <a class="btn btn-link-2" href="{{rooturl}}">
+                                    <i class="fa fa-facebook"></i> Login Here
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
