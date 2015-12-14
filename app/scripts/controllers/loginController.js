@@ -1,4 +1,4 @@
-scotchApp.controller('loginController', function ($scope, $http, companyDetailsServices,registerServices) {
+scotchApp.controller('loginController', function ($scope, $http, companyDetailsServices,registerServices,loginServices) {
     $scope.inavlidfirstname  = "";
     $scope.inavlidlastname  = "";
     $scope.inavlidemail  = "";
@@ -12,12 +12,7 @@ scotchApp.controller('loginController', function ($scope, $http, companyDetailsS
 
         });
     };
-    // $scope.validateRegistartion= function (){
-    // 	console.log($scope.firstname);
-    // 	console.log($scope.lastname);
-    // 	console.log($scope.email);
-    // 	console.log($scope.firstname);
-    // };
+   
 
     $scope.validateRegistartion = function () {
         if ($scope.firstname != undefined && $scope.lastname != undefined && $scope.email != undefined && $scope.password != undefined) {
@@ -34,7 +29,15 @@ scotchApp.controller('loginController', function ($scope, $http, companyDetailsS
     $scope.validateEmail = function (email) {
         var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
         return re.test(email);
-    }
+     };
+    $scope.LoginUserUser = function(){
+        var loginDetails  = {};
+            loginDetails.email = $scope.email;
+            loginDetails.password = $scope.password;
+         loginServices.userLogin(loginDetails).success(function (response) {
+
+         });
+    };
     $scope.registerUser = function () {
        if($scope.validateRegistartion()){
         var registerDetails  = {};
@@ -42,7 +45,7 @@ scotchApp.controller('loginController', function ($scope, $http, companyDetailsS
             registerDetails.lastname = $scope.lastname;
             registerDetails.email = $scope.email;
             registerDetails.password = $scope.password;
-         registerServices.getCompanyDetails(registerDetails).success(function (response) {
+         registerServices.createUserRegistration(registerDetails).success(function (response) {
 
          });
        }
